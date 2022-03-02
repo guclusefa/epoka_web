@@ -14,9 +14,11 @@ module.exports = {
         let params = [username, mdp]
         model_connexion.executer_connexion(params, function (data) {
             if (data.length) {
+                req.session.userid = username
                 req.flash('valid', 'Connexion avec succès');
                 res.redirect('./')
             } else {
+                console.log(req.session.userid)
                 req.flash('erreur', 'Mauvais identifiant ou mot de passe');
                 res.redirect('./connexion')
             }

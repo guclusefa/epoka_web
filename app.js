@@ -14,6 +14,10 @@ app.use(session({
 	saveUninitialized: true,
 	resave: true
 }));
+app.use(function(req, res, next) {
+	res.locals = req.session;
+	next();
+  });
 app.use(flash());
 
 //chemins static
