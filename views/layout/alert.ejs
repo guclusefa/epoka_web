@@ -1,10 +1,17 @@
-<div class="container-fluid alert alert-success" role="alert">
-    <div class="container">
-        This is a danger alert—check it out!
+<% if (typeof erreur !='undefined' && erreur !='' ) { %>
+    <div class="container-fluid alert alert-danger" role="alert">
+        <div class="container">
+            <strong>Erreur : </strong>
+            <%= erreur %>
+        </div>
     </div>
-</div>
-<div class="container-fluid alert alert-danger" role="alert">
-    <div class="container">
-        Mauvais n° d'identification ou mot de passe
+<% } %>
+
+<% if (typeof valid !='undefined' && valid !='' ) { %>
+    <div class="container-fluid alert alert-success" role="alert">
+        <div class="container">
+            <strong>Succès : </strong>
+            <%= valid %>
+        </div>
     </div>
-</div>
+<% } %>

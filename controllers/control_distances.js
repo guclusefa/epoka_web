@@ -3,6 +3,6 @@ module.exports = {
     // affichage accueil
     afficher: function (req, res) {
         titre = "Les distances";
-        res.render('./distances', { titre })
+        res.render('./distances', { titre, valid: req.flash('valid'), erreur: req.flash('erreur') })
     },
 }

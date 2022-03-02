@@ -3,6 +3,6 @@ module.exports = {
     // affichage accueil
     afficher: function (req, res) {
         titre = "Les parametres";
-        res.render('./params', { titre })
+        res.render('./params', { titre, valid: req.flash('valid'), erreur: req.flash('erreur') })
     },
 }

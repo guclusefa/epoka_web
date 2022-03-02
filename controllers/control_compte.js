@@ -3,6 +3,6 @@ module.exports = {
     // affichage compte
     afficher: function (req, res) {
         titre = "Mon compte";
-        res.render('./compte', { titre })
+        res.render('./compte', { titre, valid: req.flash('valid'), erreur: req.flash('erreur') })
     },
 }
