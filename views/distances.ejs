@@ -1,0 +1,103 @@
+<%- include('layout/header') %>
+
+    <div class="jumbotron jumbotron-fluid mb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p class="h1">Ajouter une distance</p>
+                    <form class="mt-3" action="/form_distance" method="POST">
+                        <!-- Nom et prénom -->
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label class="text-inverse" for="com_a">Commune A</label>
+                                    <select class="custom-select d-block form-control" id="com_a" name="com_a"
+                                        required>
+                                        <option value="" disabled selected>Choisir une commune</option>
+                                        <option>
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label class="text-inverse" for="com_a">Commune B</label>
+                                    <select class="custom-select d-block form-control" id="com_a" name="com_a"
+                                        required>
+                                        <option value="" disabled selected>Choisir une commune</option>
+                                        <option>
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mutuelle -->
+                        <div class="row">
+                            <div class="col-lg-12 col-sm-12 col-12">
+                                <div class="form-group">
+                                    <label for="km">Distance</label>
+                                    <input type="number" class="form-control" id="km" name="km" placeholder="Distance" required></input>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="mt-4">
+                            <button type="submit" class="btn-block btn btn-primary btn-lg">Ajouter</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container table-responsive py-5">
+        <p class="h1">Liste des distances</p>
+        <table class="table table-bordered table-hover mt-3">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <%- include('layout/footer') %>

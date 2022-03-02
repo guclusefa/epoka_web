@@ -3,6 +3,6 @@ module.exports = {
     // affichage accueil
     afficher: function (req, res) {
         titre = "Connexion";
-        res.render('./auth/connexion', { titre })
+        res.render('./connexion', { titre })
     },
 }

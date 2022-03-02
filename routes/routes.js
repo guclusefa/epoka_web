@@ -5,7 +5,9 @@ const routeur = express.Router();
 // exporter controllers
 var control_accueil = require('../controllers/control_accueil')
 var control_connexion = require('../controllers/control_connexion')
-var control_users = require('../controllers/control_users')
+var control_missions = require('../controllers/control_missions')
+var control_distances = require('../controllers/control_distances')
+var control_params = require('../controllers/control_params')
 
 
 // routage accueil
@@ -14,9 +16,14 @@ routeur.get('/', control_accueil.afficher)
 // connexion
 routeur.get('/connexion', control_connexion.afficher)
 
-// users
-routeur.get('/users/liste', control_users.afficher_liste)
-routeur.get('/users/ajouter', control_users.afficher_ajouter)
+// missions
+routeur.get('/missions', control_missions.afficher)
+
+// missions
+routeur.get('/distances', control_distances.afficher)
+
+// missions
+routeur.get('/params', control_params.afficher)
 
 
 // routeur
