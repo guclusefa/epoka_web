@@ -16,6 +16,7 @@ routeur.get('/', control_accueil.afficher)
 
 // connexion
 routeur.get('/connexion', control_connexion.afficher)
+routeur.post('/connexion', control_connexion.connexion)
 
 // missions
 routeur.get('/missions', control_missions.afficher)

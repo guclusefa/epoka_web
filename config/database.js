@@ -1,9 +1,9 @@
 var mysql = require('mysql');
 var conn = mysql.createConnection({
-    host: 'mysql-asimov.alwaysdata.net',
-    user: 'asimov', 
-    password: 'Asimov2022*',  
-    database: 'asimov_db' 
+    host: 'mysql-epoka.alwaysdata.net',
+    user: 'epoka', 
+    password: 'Epoka2022*',  
+    database: 'epoka_db' 
 });
 conn.connect(function (err) {
     if (err) throw err;
