@@ -8,6 +8,7 @@ var control_connexion = require('../controllers/control_connexion')
 var control_missions = require('../controllers/control_missions')
 var control_distances = require('../controllers/control_distances')
 var control_params = require('../controllers/control_params')
+var control_compte = require('../controllers/control_compte')
 
 
 // routage accueil
@@ -24,6 +25,9 @@ routeur.get('/distances', control_distances.afficher)
 
 // missions
 routeur.get('/params', control_params.afficher)
+
+// missions
+routeur.get('/compte', control_compte.afficher)
 
 
 // routeur
