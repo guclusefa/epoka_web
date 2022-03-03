@@ -5,6 +5,7 @@ const routeur = express.Router();
 // exporter controllers
 var control_accueil = require('../controllers/control_accueil')
 var control_connexion = require('../controllers/control_connexion')
+var control_deconnexion = require('../controllers/control_deconnexion')
 var control_missions = require('../controllers/control_missions')
 var control_distances = require('../controllers/control_distances')
 var control_params = require('../controllers/control_params')
@@ -17,6 +18,7 @@ routeur.get('/', control_accueil.afficher)
 // connexion
 routeur.get('/connexion', control_connexion.afficher)
 routeur.post('/connexion', control_connexion.connexion)
+routeur.get('/deconnexion', control_deconnexion.deconnexion)
 
 // missions
 routeur.get('/missions', control_missions.afficher)

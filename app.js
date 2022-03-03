@@ -11,13 +11,9 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 app.use(session({
 	secret:'leCodeSecretFlash',
-	saveUninitialized: true,
-	resave: true
+	saveUninitialized: false,
+	resave: false
 }));
-app.use(function(req, res, next) {
-	res.locals = req.session;
-	next();
-  });
 app.use(flash());
 
 //chemins static

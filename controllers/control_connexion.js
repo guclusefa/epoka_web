@@ -3,7 +3,7 @@ module.exports = {
     // affichage accueil
     afficher: function (req, res) {
         titre = "Connexion";
-        res.render('./connexion', { titre, valid: req.flash('valid'), erreur: req.flash('erreur') })
+        res.render('./connexion', { titre, valid: req.flash('valid'), erreur: req.flash('erreur'), user_info: req.session.user_info })
     },
 
     // connexion
@@ -14,11 +14,12 @@ module.exports = {
         let params = [username, mdp]
         model_connexion.executer_connexion(params, function (data) {
             if (data.length) {
-                req.session.userid = username
+                req.session.user_info = data[0]
+                console.log(req.session.user_info)
+
                 req.flash('valid', 'Connexion avec succès');
                 res.redirect('./')
             } else {
-                console.log(req.session.userid)
                 req.flash('erreur', 'Mauvais identifiant ou mot de passe');
                 res.redirect('./connexion')
             }
