@@ -23,35 +23,40 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/missions">Les missions</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/distances">Les distances</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/params">Les paramètres</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-          <!-- connexion -->
-          <li class="nav-item">
-            <a class="nav-link" href="/connexion">Connexion</a>
-          </li>
-
-          <!-- compte -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              GUCLU Sefa
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="/compte">Mon compte</a>
-              <a class="dropdown-item" href="/deconnexion">Déconnexion</a>
-            </div>
-          </li>
-        </ul>
+        <% if (typeof user_info !='undefined' && user_info !='' ) { %>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/missions">Les missions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/distances">Les distances</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/params">Les paramètres</a>
+            </li>
+          </ul>
+          <% } %>
+            <ul class="navbar-nav ml-auto">
+              <% if (typeof user_info !='undefined' && user_info !='' ) { %>
+                <!-- compte -->
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <%= user_info.sal_nom %>
+                      <%= user_info.sal_prenom %>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="/compte">Mon compte</a>
+                    <a class="dropdown-item" href="/deconnexion">Déconnexion</a>
+                  </div>
+                </li>
+                <% } else { %>
+                  <!-- connexion -->
+                  <li class="nav-item">
+                    <a class="nav-link" href="/connexion">Connexion</a>
+                  </li>
+                  <% } %>
+            </ul>
       </div>
 
     </div>
