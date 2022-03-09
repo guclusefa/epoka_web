@@ -5,6 +5,16 @@ module.exports = {
         var sql =`SELECT * FROM distances` 
         db.query(sql, function (err, data) {
             if (err) throw err;
+            for (i in data) {
+                coma = data[i].dis_idComA
+                comb = data[i].dis_idComB
+
+                sql_coma = `SELECT com_nom FROM communes WHERE com_id = ${coma}` 
+                sql_comb = `SELECT com_nom FROM communes WHERE com_id = ${comb}` 
+
+                data[i].dis_nomA = "test"
+                data[i].dis_nomB = "test"
+            }
             return callback(data);
         });
     },
