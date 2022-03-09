@@ -35,7 +35,11 @@
                             <%= uneMission.comB_nom %>
                         </td>
                         <td>
-                            <%= uneMission.dis_km %>€
+                            <% if(uneMission.dis_km) { %>
+                                <%= uneMission.dis_km %> <%= uneMission.mis_jour %>€
+                            <%} else {%>
+                            A definir
+                            <% } %>
                         </td>
 
                         <td>
