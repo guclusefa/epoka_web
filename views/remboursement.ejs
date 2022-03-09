@@ -3,15 +3,16 @@
 
 
     <div class="container table-responsive py-5">
-        <p class="h1">Validation des missions</p>
+        <p class="h1">Remboursement des missions</p>
         <table class="table table-bordered table-hover mt-3">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">Salarié</th>
                     <th scope="col">Début mission</th>
                     <th scope="col">Fin mission</th>
+                    <th scope="col">Agence</th>
                     <th scope="col">Lieu mission</th>
-                    <th scope="col">Validée</th>
+                    <th scope="col">Montant</th>
                     <th scope="col">Remboursée</th>
                 </tr>
             </thead>
@@ -28,16 +29,24 @@
                             <%= uneMission.mis_fin %>
                         </td>
                         <td>
+                            <%= uneMission.com_agence_nom %>
+                        </td>
+                        <td>
                             <%= uneMission.com_nom %>
                         </td>
                         <td>
-                            <% if (uneMission.mis_validee) { %>Oui<% } else { %>
-                                    <button class="btn btn-primary" onclick="location.href='/valider/<%= uneMission.mis_id  %>'">Valider</button>
-                           <% } %>
+                            <% if (uneMission.distancier) { %>
+                                <%= uneMission.montantTotal %>
+                                <% } else { %>
+                                    Distance entre <%= uneMission.com_agence_nom %> et <%= uneMission.com_nom %> pas connue
+                                <% } %> €
                         </td>
 
                         <td>
-                            <% if (uneMission.mis_payee) { %>Oui<% } else { %>Non<% } %>
+                            <% if (uneMission.mis_payee) { %>Oui<% } else { %>
+                                    <button class="btn btn-primary"
+                                        onclick="location.href='/rembourser/<%= uneMission.mis_id  %>'">Rembourser</button>
+                                    <% } %>
                         </td>
                     </tr>
                     <% })%>

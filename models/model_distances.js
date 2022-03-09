@@ -24,4 +24,12 @@ module.exports = {
             return callback(data);
         });
     },
+
+    ficher: function(params, callback){
+        var sql = 'SELECT * FROM distances WHERE dis_idComA = ? AND dis_idComB = ?' ;
+        db.query(sql, params, function(err,data){
+            if(err)throw err;
+            return callback(data);
+        });
+    },
 };
