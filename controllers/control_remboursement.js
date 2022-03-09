@@ -11,21 +11,20 @@ module.exports = {
 
                 for (i in lesMissions) {
                     agence = lesMissions[i].sal_idAgence
+                    console.log("agence : " + agence)
                     model_communes.communeAgence(agence, function (communeAgence) {
                         lesMissions[i].com_agence_id = communeAgence[0].com_id
                         lesMissions[i].com_agence_nom = communeAgence[0].com_nom
 
                         if (communeAgence[0].com_id < lesMissions[i].mis_idCom) {
                             com_a = communeAgence[0].com_id
-                            com_b = com_b = lesMissions[i].mis_idCom
+                            com_b = lesMissions[i].mis_idCom
                         } else {
-                            com_a = com_b = lesMissions[i].mis_idCom
+                            com_a = lesMissions[i].mis_idCom
                             com_b = communeAgence[0].com_id
                         }
 
                         params = [com_a, com_b]
-
-                        console.log(lesMissions[i])
 
                         model_distances.ficher(params, function (distance) {
                             if (distance.length) {
@@ -39,10 +38,13 @@ module.exports = {
                                 })
                             } else {
                                 lesMissions[i].distancier = 0
+
                             }
                         })
                     })
+
                 }
+                console.log(lesMissions)
                 res.render('./remboursement', { titre, valid: req.flash('valid'), erreur: req.flash('erreur'), user_info: req.session.user_info, lesMissions })
             })
         } else {

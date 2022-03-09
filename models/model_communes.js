@@ -16,4 +16,13 @@ module.exports = {
             return callback(data);
         });
     },
+
+    nomCommune: function (params, callback) {
+        var sql = "SELECT * FROM communes WHERE com_id = ?";
+        db.query(sql, params, function (err, data) {
+            if (err) throw err;
+            return callback(data);
+        });
+    },
+
 };
