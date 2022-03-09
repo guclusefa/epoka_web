@@ -2,20 +2,18 @@ var db = require("../config/database");
 module.exports = {
     // page d'accueil
     lister: function (callback) {
-        var sql =`SELECT * FROM distances` 
+        var sql =`SELECT * FROM distances ORDER BY dis_id` 
+        var sqlComA =`SELECT * FROM distances, communes WHERE com_id = dis_idComA ORDER BY dis_id` 
+        var sqlComB =`SELECT * FROM distances, communes WHERE com_id = dis_idComB ORDER BY dis_id` 
         db.query(sql, function (err, data) {
             if (err) throw err;
-            for (i in data) {
-                coma = data[i].dis_idComA
-                comb = data[i].dis_idComB
-
-                sql_coma = `SELECT com_nom FROM communes WHERE com_id = ${coma}` 
-                sql_comb = `SELECT com_nom FROM communes WHERE com_id = ${comb}` 
-
-                data[i].dis_nomA = "test"
-                data[i].dis_nomB = "test"
-            }
-            return callback(data);
+            db.query(sqlComA, function (err, data2) {
+                if (err) throw err;
+                db.query(sqlComB, function (err, data3) {
+                    if (err) throw err;
+                    return callback(data, data2, data3);
+                });
+            });
         });
     },
 
@@ -28,14 +26,6 @@ module.exports = {
     },
 
     verifier: function(params, callback){
-        var sql = 'SELECT * FROM distances WHERE dis_idComA = ? AND dis_idComB = ?' ;
-        db.query(sql, params, function(err,data){
-            if(err)throw err;
-            return callback(data);
-        });
-    },
-
-    ficher: function(params, callback){
         var sql = 'SELECT * FROM distances WHERE dis_idComA = ? AND dis_idComB = ?' ;
         db.query(sql, params, function(err,data){
             if(err)throw err;

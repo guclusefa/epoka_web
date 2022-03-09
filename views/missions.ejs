@@ -10,6 +10,7 @@
                     <th scope="col">Salarié</th>
                     <th scope="col">Début mission</th>
                     <th scope="col">Fin mission</th>
+                    <th scope="col">Agence</th>
                     <th scope="col">Lieu mission</th>
                     <th scope="col">Validée</th>
                     <th scope="col">Remboursée</th>
@@ -28,7 +29,10 @@
                             <%= uneMission.mis_fin %>
                         </td>
                         <td>
-                            <%= uneMission.com_nom %>
+                            <%= uneMission.mis_idSalCom %>
+                        </td>
+                        <td>
+                            <%= uneMission.mis_idCom %>
                         </td>
                         <td>
                             <% if (uneMission.mis_validee) { %>Oui<% } else { %>

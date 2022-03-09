@@ -29,17 +29,13 @@
                             <%= uneMission.mis_fin %>
                         </td>
                         <td>
-                            <%= uneMission.com_agence_nom %>
+                            <%= uneMission.mis_idSalCom %>
                         </td>
                         <td>
-                            <%= uneMission.com_nom %>
+                            <%= uneMission.mis_idCom %>
                         </td>
                         <td>
-                            <% if (uneMission.distancier) { %>
-                                <%= uneMission.montantTotal %>
-                                <% } else { %>
-                                    Distance entre <%= uneMission.com_agence_nom %> et <%= uneMission.com_nom %> pas connue
-                                <% } %> €
+                            <%= uneMission.distance %>€
                         </td>
 
                         <td>
