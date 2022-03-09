@@ -1,0 +1,59 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>&lt;diagram program="umletino" version="14.4.0-SNAPSHOT"&gt;&lt;zoom_level&gt;10&lt;/zoom_level&gt;&lt;element&gt;&lt;id&gt;Relation&lt;/id&gt;&lt;coordinates&gt;&lt;x&gt;550&lt;/x&gt;&lt;y&gt;90&lt;/y&gt;&lt;w&gt;230&lt;/w&gt;&lt;h&gt;120&lt;/h&gt;&lt;/coordinates&gt;&lt;panel_attributes&gt;lt=-
+m1= 0..*
+m2=0..1&lt;/panel_attributes&gt;&lt;additional_attributes&gt;210;90;130;90;130;10;10;10&lt;/additional_attributes&gt;&lt;/element&gt;&lt;/diagram&gt;&lt;diagram program="umletino" version="14.4.0-SNAPSHOT"&gt;&lt;zoom_level&gt;10&lt;/zoom_level&gt;&lt;element&gt;&lt;id&gt;Relation&lt;/id&gt;&lt;coordinates&gt;&lt;x&gt;190&lt;/x&gt;&lt;y&gt;120&lt;/y&gt;&lt;w&gt;410&lt;/w&gt;&lt;h&gt;80&lt;/h&gt;&lt;/coordinates&gt;&lt;panel_attributes&gt;lt=-
+m1= 0..*
+m2=0..1&lt;/panel_attributes&gt;&lt;additional_attributes&gt;390;50;10;10&lt;/additional_attributes&gt;&lt;/element&gt;&lt;/diagram&gt;Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>10</x><y>70</y><w>100</w><h>140</h></coordinates><panel_attributes>Salarie 
+--
+ id
+nom
+prenom
+mdp
+isCompta</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>460</x><y>0</y><w>100</w><h>130</h></coordinates><panel_attributes>mission 
+--
+id
+lieu
+dateDebut
+dateFin
+valideé
+payé</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>100</x><y>60</y><w>380</w><h>110</h></coordinates><panel_attributes>lt=-
+m1= 0..*
+m2=0..1</panel_attributes><additional_attributes>360;10;210;10;210;80;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>320</y><w>100</w><h>120</h></coordinates><panel_attributes>agence 
+--
+id
+nom
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>20</x><y>200</y><w>50</w><h>140</h></coordinates><panel_attributes>lt=-
+m1= 0..*
+m2=1</panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>UMLClass</id><coordinates><x>760</x><y>80</y><w>100</w><h>150</h></coordinates><panel_attributes>Commune
+--
+id
+nom
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>550</x><y>90</y><w>230</w><h>120</h></coordinates><panel_attributes>lt=-
+m1= 0..*
+m2=0..1</panel_attributes><additional_attributes>210;90;130;90;130;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>550</x><y>490</y><w>100</w><h>140</h></coordinates><panel_attributes>Parametre 
+--
+forfaitJ
+tauxKm
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>90</x><y>220</y><w>760</w><h>190</h></coordinates><panel_attributes>lt=-
+m1= 0..*
+m2=1</panel_attributes><additional_attributes>10;160;730;160;730;10</additional_attributes></element><element><id>Relation</id><coordinates><x>850</x><y>100</y><w>120</w><h>130</h></coordinates><panel_attributes>lt=-
+m1= *
+m2=*
+</panel_attributes><additional_attributes>10;100;100;100;100;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1070</x><y>130</y><w>100</w><h>80</h></coordinates><panel_attributes>relier
+--
+distance</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>940</x><y>150</y><w>150</w><h>40</h></coordinates><panel_attributes>lt=.
+</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>980</x><y>450</y><w>100</w><h>80</h></coordinates><panel_attributes>commune 
+--
+id 
+nom
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1220</x><y>450</y><w>100</w><h>80</h></coordinates><panel_attributes>distance 
+--
+id
+distanceKm
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1070</x><y>460</y><w>170</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=*
+</panel_attributes><additional_attributes>10;20;150;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1070</x><y>500</y><w>170</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=*
+</panel_attributes><additional_attributes>10;20;150;20</additional_attributes></element></diagram>

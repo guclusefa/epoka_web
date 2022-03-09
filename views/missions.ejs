@@ -1,118 +1,50 @@
 <%- include('layout/header') %>
 
-    <div class="jumbotron jumbotron-fluid mb-0">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <p class="h1">Ajouter une mission</p>
-                    <form class="mt-3" action="/form_missions" method="POST">
-                        <!-- Nom et prénom -->
-                        <div class="row">
-                            <div class="col-lg-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label class="text-inverse" for="salarie">Salarié</label>
-                                    <select class="custom-select d-block form-control" id="salarie" name="salarie"
-                                        required>
-                                        <option value="" disabled selected>Choisir un salarié</option>
-                                        <option>
-                                        </option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label class="text-inverse" for="commune">Commune</label>
-                                    <select class="custom-select d-block form-control" id="commune" name="commune"
-                                        required>
-                                        <option value="" disabled selected>Choisir une commune</option>
-                                        <option>
-                                        </option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Sexe et date de naissance -->
-                        <div class="row">
-                            <div class="col-lg-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label class="text-inverse" for="debut">Date de début</label>
-                                    <input type="date" class="form-control" id="debut" name="debut" required>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label class="text-inverse" for="fin">Date de fin</label>
-                                    <input type="date" class="form-control" id="fin" name="fin" required>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Mutuelle -->
-                        <div class="row">
-                            <div class="col-lg-12 col-sm-12 col-12">
-                                <div class="form-group">
-                                    <label for="description">Description</label>
-                                    <textarea class="form-control" id="description" name="description" rows="3"
-                                        placeholder="Description..."></textarea>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="mt-4">
-                            <button type="submit" class="btn-block btn btn-primary btn-lg">Ajouter</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
     <div class="container table-responsive py-5">
-        <p class="h1">Liste des missions</p>
+        <p class="h1">Validation des missions</p>
         <table class="table table-bordered table-hover mt-3">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Salarié</th>
+                    <th scope="col">Début mission</th>
+                    <th scope="col">Fin mission</th>
+                    <th scope="col">Agence</th>
+                    <th scope="col">Lieu mission</th>
+                    <th scope="col">Validée</th>
+                    <th scope="col">Remboursée</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+                <% lesMissions.forEach(function(uneMission){ %>
+                    <tr>
+                        <th>
+                            <%= uneMission.sal_nom + ' ' + uneMission.sal_prenom %>
+                        </th>
+                        <td>
+                            <%= uneMission.mis_debut %>
+                        </td>
+                        <td>
+                            <%= uneMission.mis_fin %>
+                        </td>
+                        <td>
+                            <%= uneMission.sal_idAgence %>
+                        </td>
+                        <td>
+                            <%= uneMission.com_nom %>
+                        </td>
+                        <td>
+                            <% if (uneMission.mis_validee) { %>Oui<% } else { %>
+                                    <button class="btn btn-primary" onclick="location.href='/valider/<%= uneMission.mis_id  %>'">Valider</button>
+                           <% } %>
+                        </td>
+
+                        <td>
+                            <% if (uneMission.mis_payee) { %>Oui<% } else { %>Non<% } %>
+                        </td>
+                    </tr>
+                    <% })%>
             </tbody>
         </table>
     </div>

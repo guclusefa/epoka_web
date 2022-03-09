@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-12">
                     <p class="h1">Ajouter une distance</p>
-                    <form class="mt-3" action="/form_distance" method="POST">
+                    <form class="mt-3" action="/form_distances" method="POST">
                         <!-- Nom et prénom -->
                         <div class="row">
                             <div class="col-lg-6 col-sm-6 col-12">
@@ -14,19 +14,21 @@
                                     <select class="custom-select d-block form-control" id="com_a" name="com_a"
                                         required>
                                         <option value="" disabled selected>Choisir une commune</option>
-                                        <option>
-                                        </option>
+                                        <% lesCommunes.forEach(function(uneCommune){ %>
+                                            <option value="<%= uneCommune.com_id %>"><%= uneCommune.com_nom + ' (' + uneCommune.com_cp + ')'  %></option>
+                                        <% })%>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label class="text-inverse" for="com_a">Commune B</label>
-                                    <select class="custom-select d-block form-control" id="com_a" name="com_a"
+                                    <select class="custom-select d-block form-control" id="com_b" name="com_b"
                                         required>
                                         <option value="" disabled selected>Choisir une commune</option>
-                                        <option>
-                                        </option>
+                                        <% lesCommunes.forEach(function(uneCommune){ %>
+                                            <option value="<%= uneCommune.com_id %>"><%= uneCommune.com_nom + ' (' + uneCommune.com_cp + ')'  %></option>
+                                        <% })%>
                                     </select>
                                 </div>
                             </div>
@@ -59,42 +61,20 @@
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Commune A</th>
+                    <th scope="col">Commune B</th>
+                    <th scope="col">Distance</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+                <% lesDistances.forEach(function(uneDistance){ %>
+                    <tr>
+                        <th><%= uneDistance.dis_id %></th>
+                        <td><%= uneDistance.dis_idComA %></td>
+                        <td><%= uneDistance.dis_idComB %></td>
+                        <td><%= uneDistance.dis_km %> km</td>
+                    </tr>
+                <% })%>
             </tbody>
         </table>
     </div>

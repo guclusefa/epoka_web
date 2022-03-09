@@ -22,12 +22,15 @@ routeur.get('/deconnexion', control_deconnexion.deconnexion)
 
 // missions
 routeur.get('/missions', control_missions.afficher)
+routeur.get('/valider/:id', control_missions.valider)
 
 // missions
 routeur.get('/distances', control_distances.afficher)
+routeur.post('/form_distances', control_distances.ajouter)
 
 // missions
 routeur.get('/params', control_params.afficher)
+routeur.post('/form_params', control_params.modifier)
 
 // missions
 routeur.get('/compte', control_compte.afficher)
