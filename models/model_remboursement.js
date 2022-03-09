@@ -20,9 +20,9 @@ module.exports = {
         });
     },
 
-    valider: function (params, callback) {
+    rembourser: function (params, callback) {
         var sql =`UPDATE missions
-        SET mis_validee = 1
+        SET mis_payee = 1
         WHERE mis_id = ?` 
         db.query(sql, params, function(err,data){
             if(err)throw err;

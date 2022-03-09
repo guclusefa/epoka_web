@@ -1,5 +1,6 @@
 var model_distances = require('../models/model_distances');
 var model_communes = require('../models/model_communes');
+
 module.exports = {
     // affichage accueil
     afficher: function (req, res) {
