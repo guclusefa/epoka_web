@@ -11,14 +11,14 @@
                             <div class="col-lg-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="nom">Nom</label>
-                                    <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom"
+                                    <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" value="<%= info.sal_nom %>"
                                         required></input>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="prenom">Prénom</label>
-                                    <input type="text" class="form-control" id="prenom" name="prenom"
+                                    <input type="text" class="form-control" id="prenom" name="prenom" value="<%= info.sal_prenom %>"
                                         placeholder="Prénom" required></input>
                                 </div>
                             </div>
@@ -32,9 +32,7 @@
                                     <label for="agence">Agence</label>
                                     <select class="custom-select d-block form-control" id="agence" name="agence"
                                         required>
-                                        <option value="" disabled selected>Choisir une agence</option>
-                                        <option>
-                                        </option>
+                                        <option value="<%= info.age_id %>" disabled selected><%= info.age_nom %></option>
                                     </select>
                                 </div>
                             </div>
@@ -62,10 +60,10 @@
                         <!-- Nom et prénom -->
                         <div class="row">
                             <div class="col-lg-6 col-sm-6 col-12">
-                            <p>N° d'identification : <b>1</b></p>
+                            <p>N° d'identification : <b><%= info.sal_id %></b></p>
                             </div>
                             <div class="col-lg-6 col-sm-6 col-12">
-                                <p>Statue : <b>Salarié</b></p>
+                                <p>Statue : <b><%= info.statue %></b></p>
                             </div>
                         </div>
 

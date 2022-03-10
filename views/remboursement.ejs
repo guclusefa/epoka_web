@@ -35,17 +35,24 @@
                             <%= uneMission.comB_nom %>
                         </td>
                         <td>
-                            <% if(uneMission.dis_km) { %>
-                                <%= uneMission.dis_km %> <%= uneMission.mis_jour %>€
-                            <%} else {%>
-                            A definir
-                            <% } %>
+                            <% if(uneMission.dis_km && !uneMission.mis_montant) { %>
+                                <%= uneMission.montantAPayer %> €
+                                    <%} else if (uneMission.mis_montant) {%>
+                                        <%= uneMission.mis_montant %> €
+                                            <%} else {%>
+                                                Distance entre <%= uneMission.comA_nom %> et <%= uneMission.comB_nom %>
+                                                        à définir
+                                                        <% } %>
                         </td>
 
                         <td>
-                            <% if (uneMission.mis_payee) { %>Oui<% } else { %>
+                            <% if (uneMission.mis_payee) { %>
+                                Oui
+                                <%} else if (!uneMission.dis_km) {%>
+                                    Definir distances
+                                <% } else { %>
                                     <button class="btn btn-primary"
-                                        onclick="location.href='/rembourser/<%= uneMission.mis_id  %>'">Rembourser</button>
+                                        onclick="location.href='/rembourser/<%= uneMission.mis_id  %>/<%= uneMission.montantAPayer %>'">Rembourser</button>
                                     <% } %>
                         </td>
                     </tr>

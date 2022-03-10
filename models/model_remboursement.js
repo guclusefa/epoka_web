@@ -20,7 +20,8 @@ module.exports = {
 
     rembourser: function (params, callback) {
         var sql = `UPDATE missions
-        SET mis_payee = 1
+        SET mis_payee = 1,
+        mis_montant = ?
         WHERE mis_id = ?`
         db.query(sql, params, function (err, data) {
             if (err) throw err;

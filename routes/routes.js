@@ -26,7 +26,7 @@ routeur.get('/valider/:id', control_missions.valider)
 
 // remboursement
 routeur.get('/remboursement', control_remboursement.afficher)
-routeur.get('/rembourser/:id', control_remboursement.rembourser)
+routeur.get('/rembourser/:id/:montant', control_remboursement.rembourser)
 
 // distances
 routeur.get('/distances', control_distances.afficher)
