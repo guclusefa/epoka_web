@@ -10,7 +10,8 @@ module.exports = {
                 res.render('./params', { titre, valid: req.flash('valid'), erreur: req.flash('erreur'), user_info: req.session.user_info, data })
             })
         } else {
-            res.redirect('./')
+            req.flash('erreur', "Vous n'êtes pas autorisé");
+            res.redirect('/')
         }
     },
 
@@ -25,7 +26,8 @@ module.exports = {
                 res.redirect('./params')
             })
         } else {
-            res.redirect('./')
+            req.flash('erreur', "Vous n'êtes pas autorisé");
+            res.redirect('/')
         }
     },
 }

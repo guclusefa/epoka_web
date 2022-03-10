@@ -16,7 +16,8 @@ module.exports = {
                 res.render('./compte', { titre, valid: req.flash('valid'), erreur: req.flash('erreur'), user_info: req.session.user_info, info })
             })
         } else {
-            res.redirect('./')
+            req.flash('erreur', "Vous n'êtes pas autorisé");
+            res.redirect('/')
         }
     },
 }

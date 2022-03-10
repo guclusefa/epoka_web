@@ -29,7 +29,8 @@ module.exports = {
                 })
             })
         } else {
-            res.redirect('./')
+            req.flash('erreur', "Vous n'êtes pas autorisé");
+            res.redirect('/')
         }
     },
 
@@ -45,7 +46,8 @@ module.exports = {
                 res.redirect('/remboursement')
             })
         } else {
-            res.redirect('../')
+            req.flash('erreur', "Vous n'êtes pas autorisé");
+            res.redirect('/')
         }
     },
 }

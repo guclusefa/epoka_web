@@ -7,7 +7,8 @@ module.exports = {
             titre = "Connexion";
             res.render('./connexion', { titre, valid: req.flash('valid'), erreur: req.flash('erreur'), user_info: req.session.user_info })
         } else {
-            res.redirect('./')
+            req.flash('erreur', "Vous n'êtes pas autorisé");
+            res.redirect('/')
         }
     },
 
@@ -29,7 +30,8 @@ module.exports = {
                 }
             })
         } else {
-            res.redirect('./')
+            req.flash('erreur', "Vous n'êtes pas autorisé");
+            res.redirect('/')
         }
     },
 
@@ -37,7 +39,9 @@ module.exports = {
         if (req.session.user_info !== undefined) { // si connecte
             delete req.session.user_info
             req.flash('valid', 'Deconnexion avec succès');
+        } else {
+            req.flash('erreur', "Vous n'êtes pas autorisé");
         }
-        res.redirect('./')
+        res.redirect('/')
     },
 }

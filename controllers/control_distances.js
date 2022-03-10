@@ -17,7 +17,8 @@ module.exports = {
                 })
             })
         } else {
-            res.redirect('./')
+            req.flash('erreur', "Vous n'êtes pas autorisé");
+            res.redirect('/')
         }
     },
 
@@ -54,7 +55,8 @@ module.exports = {
                 res.redirect('./distances')
             }
         } else {
-            res.redirect('./')
+            req.flash('erreur', "Vous n'êtes pas autorisé");
+            res.redirect('/')
         }
     },
 }

@@ -14,7 +14,8 @@ module.exports = {
                 res.render('./missions', { titre, valid: req.flash('valid'), erreur: req.flash('erreur'), user_info: req.session.user_info, lesMissions })
             })
         } else {
-            res.redirect('./')
+            req.flash('erreur', "Vous n'êtes pas autorisé");
+            res.redirect('/')
         }
     },
     valider: function (req, res) {
@@ -26,6 +27,7 @@ module.exports = {
                 res.redirect('../missions')
             })
         } else {
+            req.flash('erreur', "Vous n'êtes pas autorisé");
             res.redirect('../')
         }
     },
