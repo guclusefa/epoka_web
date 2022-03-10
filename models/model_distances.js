@@ -2,7 +2,12 @@ var db = require("../config/database");
 module.exports = {
     // page d'accueil
     lister: function (callback) {
-        var sql = `SELECT * FROM distances, communes AS communeA, communes AS communeB WHERE communeA.com_id = dis_idComA AND communeB.com_id = dis_idComB ORDER BY dis_id;`
+        var sql = `SELECT *, 
+        cA.com_nom as comA_nom, 
+        cB.com_nom as comB_nom 
+        FROM distances, communes AS cA, communes AS cB 
+        WHERE cA.com_id = dis_idComA 
+        AND cB.com_id = dis_idComB`
         db.query(sql, function (err, data) {
             if (err) throw err;
             return callback(data);

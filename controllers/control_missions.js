@@ -5,12 +5,7 @@ module.exports = {
     afficher: function (req, res) {
         if (req.session.user_info !== undefined && req.session.user_info.sal_isResponsable == 1) { // si connecte
             titre = "Validation des missions";
-            model_missions.lister(function (lesMissions, lesComA, lesComB) {
-                for (i in lesMissions) {
-                    lesMissions[i].comA_nom = lesComA[i].com_nom
-                    lesMissions[i].comB_nom = lesComB[i].com_nom
-                }
-                console.log(lesMissions)
+            model_missions.lister(function (lesMissions) {
                 res.render('./missions', { titre, valid: req.flash('valid'), erreur: req.flash('erreur'), user_info: req.session.user_info, lesMissions })
             })
         } else {

@@ -47,7 +47,7 @@ module.exports = {
                     }
                 })
             } else {
-                req.flash('erreur', 'Bien essayé !');
+                req.flash('erreur', 'Entrez deux communes différentes !');
                 res.redirect('./distances')
             }
         } else {
