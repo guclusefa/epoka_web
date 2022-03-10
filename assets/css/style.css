@@ -17,3 +17,7 @@ body {
 .alert {
   margin-bottom: 0;
 }
+
+.select2 {
+  width: 100% !important;
+}
