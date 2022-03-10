@@ -5,68 +5,54 @@
             <div class="row">
                 <div class="col-12">
                     <p class="h1">Modifier mes informations</p>
-                    <form class="mt-3" action="/form_compte" method="POST">
+                    <!-- Nom et prénom -->
+                    <div class="mt-5">
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-6 col-12">
+                                <p>NOM : <b>
+                                        <%= info.sal_nom %>
+                                            <%= info.sal_prenom %>
+                                    </b></p>
+                            </div>
+                            <div class="col-lg-6 col-sm-6 col-12">
+                                <p>N° d'identification : <b>
+                                        <%= info.sal_id %>
+                                    </b></p>
+                            </div>
+                        </div>
+
                         <!-- Nom et prénom -->
                         <div class="row">
                             <div class="col-lg-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="nom">Nom</label>
-                                    <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" value="<%= info.sal_nom %>"
-                                        required></input>
-                                </div>
+                                <p>Agence : <b>
+                                        <%= info.age_nom %>
+                                    </b></p>
                             </div>
                             <div class="col-lg-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="prenom">Prénom</label>
-                                    <input type="text" class="form-control" id="prenom" name="prenom" value="<%= info.sal_prenom %>"
-                                        placeholder="Prénom" required></input>
-                                </div>
+                                <p>Statue : <b>
+                                        <%= info.statue %>
+                                    </b></p>
                             </div>
                         </div>
-
-
-                        <!-- Mutuelle -->
-                        <div class="row">
-                            <div class="col-lg-12 col-sm-12 col-12">
-                                <div class="form-group">
-                                    <label for="agence">Agence</label>
-                                    <select class="custom-select d-block form-control" id="agence" name="agence"
-                                        required>
-                                        <option value="<%= info.age_id %>" disabled selected><%= info.age_nom %></option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <!-- Mutuelle -->
+                    </div>
+                    <form class="mt-3" action="/form_compte" method="POST">
+                        <!-- motde passe -->
                         <div class="row">
                             <div class="col-lg-6 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <label for="mdp1">Mot de passe</label>
+                                    <label for="mdp1">Nouveau mot de passe</label>
                                     <input type="password" class="form-control" id="mdp1" name="mdp1"
                                         placeholder="Mot de passe"></input>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <label for="mdp2">Valider mot de passe</label>
+                                    <label for="mdp2">Valider nouveau mot de passe</label>
                                     <input type="password" class="form-control" id="mdp2" name="mdp2"
                                         placeholder="Valider mot de passe"></input>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Nom et prénom -->
-                        <div class="row">
-                            <div class="col-lg-6 col-sm-6 col-12">
-                            <p>N° d'identification : <b><%= info.sal_id %></b></p>
-                            </div>
-                            <div class="col-lg-6 col-sm-6 col-12">
-                                <p>Statue : <b><%= info.statue %></b></p>
-                            </div>
-                        </div>
-
                         <div class="mt-4">
                             <button type="submit" class="btn-block btn btn-primary btn-lg">Modifier</button>
                         </div>
