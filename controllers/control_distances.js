@@ -7,11 +7,7 @@ module.exports = {
         if (req.session.user_info !== undefined && req.session.user_info.sal_isPersonnel == 1) { // si connecte
             titre = "Les distances";
             model_communes.lister(function (lesCommunes) {
-                model_distances.lister(function (lesDistances, lesComA, lesComB) {
-                    for (i in lesDistances) {
-                        lesDistances[i].comA_nom = lesComA[i].com_nom
-                        lesDistances[i].comB_nom = lesComB[i].com_nom
-                    }
+                model_distances.lister(function (lesDistances) {
                     console.log(lesDistances)
                     res.render('./distances', { titre, valid: req.flash('valid'), erreur: req.flash('erreur'), user_info: req.session.user_info, lesCommunes, lesDistances })
                 })
