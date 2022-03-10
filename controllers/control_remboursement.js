@@ -10,9 +10,11 @@ module.exports = {
                     for (j in lesMissions) {
                         if (lesMissions[j].mis_id == lesMissionsTotal[i].mis_id) {
                             lesMissionsTotal[i].dis_km = lesMissions[j].dis_km
+                            lesMissionsTotal[i].montantAPayer= lesMissions[j].montantAPayer
                         }
                     }
                 }
+                console.log(lesMissionsTotal)
                 res.render('./remboursement', { titre, valid: req.flash('valid'), erreur: req.flash('erreur'), user_info: req.session.user_info, lesMissions: lesMissionsTotal })
             })
         } else {
