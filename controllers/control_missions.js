@@ -3,7 +3,7 @@ var model_missions = require('../models/model_missions');
 module.exports = {
     // affichage accueil
     afficher: function (req, res) {
-        if (req.session.user_info !== undefined) { // si connecte
+        if (req.session.user_info !== undefined && req.session.user_info.sal_isResponsable == 1) { // si connecte
             titre = "Validation des missions";
             model_missions.lister(function (lesMissions, lesComA, lesComB) {
                 for (i in lesMissions) {
@@ -19,7 +19,7 @@ module.exports = {
         }
     },
     valider: function (req, res) {
-        if (req.session.user_info !== undefined) { // si connecte
+        if (req.session.user_info !== undefined && req.session.user_info.sal_isResponsable == 1) { // si connecte
             id = req.params.id
 
             model_missions.valider(id, function (data) {

@@ -4,7 +4,7 @@ var model_communes = require('../models/model_communes');
 module.exports = {
     // affichage accueil
     afficher: function (req, res) {
-        if (req.session.user_info !== undefined) { // si connecte
+        if (req.session.user_info !== undefined && req.session.user_info.sal_isPersonnel == 1) { // si connecte
             titre = "Les distances";
             model_communes.lister(function (lesCommunes) {
                 model_distances.lister(function (lesDistances, lesComA, lesComB) {
@@ -24,7 +24,7 @@ module.exports = {
 
 
     ajouter: function (req, res) {
-        if (req.session.user_info !== undefined) { // si connecte
+        if (req.session.user_info !== undefined && req.session.user_info.sal_isPersonnel == 1) { // si connecte
             if (req.body.com_a !== req.body.com_b) {
                 if (req.body.com_a < req.body.com_b) {
                     com_a = req.body.com_a

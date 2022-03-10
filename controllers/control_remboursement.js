@@ -4,7 +4,7 @@ var model_params = require('../models/model_params');
 module.exports = {
     // affichage accueil
     afficher: function (req, res) {
-        if (req.session.user_info !== undefined) { // si connecte
+        if (req.session.user_info !== undefined && req.session.user_info.sal_isPersonnel == 1) { // si connecte
             titre = "Remboursement des missions";
             model_remboursement.lister(function (lesMissionsTotal, lesMissions, lesComA, lesComB) {
                 for (i in lesMissionsTotal) {
@@ -35,7 +35,7 @@ module.exports = {
     },
 
     rembourser: function (req, res) {
-        if (req.session.user_info !== undefined) { // si connecte
+        if (req.session.user_info !== undefined && req.session.user_info.sal_isPersonnel == 1) { // si connecte
             let params = [
             montant = req.params.montant,
             id = req.params.id
