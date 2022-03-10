@@ -1,7 +1,7 @@
 var db = require("../config/database");
 module.exports = {
     // page d'accueil
-    lister: function (callback) {
+    lister: function (params, callback) {
         var sql = `SELECT *, 
         DATEDIFF(mis_fin, mis_debut)+1 AS mis_jour, 
         DATE_FORMAT(mis_debut, '%d/%m/%Y') as mis_debut, 
@@ -11,8 +11,9 @@ module.exports = {
         FROM missions, salaries, communes as cA, communes as cB 
         WHERE cA.com_id = mis_idSalCom 
         AND cB.com_id = mis_idCom 
-        AND mis_idSal = sal_id;`
-        db.query(sql, function (err, data) {
+        AND mis_idSal = sal_id
+        AND sal_idResponsable = ?;`
+        db.query(sql, params, function (err, data) {
             if (err) throw err;
             return callback(data);
         });
