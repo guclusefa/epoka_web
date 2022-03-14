@@ -9,7 +9,7 @@ module.exports = {
             model_communes.lister(function (lesCommunes) {
                 model_distances.lister(function (lesDistances) {
                     console.log(lesDistances)
-                    res.render('./distances', { titre, valid: req.flash('valid'), erreur: req.flash('erreur'), user_info: req.session.user_info, lesCommunes, lesDistances })
+                    res.render('./distances', { titre, lesCommunes, lesDistances })
                 })
             })
         } else {

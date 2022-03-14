@@ -7,7 +7,7 @@ module.exports = {
             titre = "Les parametres";
             model_params.afficher(function (data) {
                 data = data[0]
-                res.render('./params', { titre, valid: req.flash('valid'), erreur: req.flash('erreur'), user_info: req.session.user_info, data })
+                res.render('./params', { titre, data })
             })
         } else {
             req.flash('erreur', "Vous n'êtes pas autorisé");

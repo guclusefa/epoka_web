@@ -6,7 +6,7 @@ module.exports = {
         if (req.session.user_info !== undefined && req.session.user_info.sal_isResponsable == 1) { // si connecte
             titre = "Validation des missions";
             model_missions.lister(req.session.user_info.sal_id, function (lesMissions) {
-                res.render('./missions', { titre, valid: req.flash('valid'), erreur: req.flash('erreur'), user_info: req.session.user_info, lesMissions })
+                res.render('./missions', { titre, lesMissions })
             })
         } else {
             req.flash('erreur', "Vous n'êtes pas autorisé");

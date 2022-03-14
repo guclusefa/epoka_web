@@ -13,7 +13,7 @@ module.exports = {
                 } else {
                     info.statue = "Journaliste"
                 }
-                res.render('./compte', { titre, valid: req.flash('valid'), erreur: req.flash('erreur'), user_info: req.session.user_info, info })
+                res.render('./compte', { titre, info })
             })
         } else {
             req.flash('erreur', "Vous n'êtes pas autorisé");

@@ -14,7 +14,15 @@ app.use(session({
 	saveUninitialized: false,
 	resave: false
 }));
-app.use(flash());
+// les variables qu'on utilse de partout
+app.use(flash())
+app.use(function(req, res, next){
+	valid= req.flash('valid'),
+	erreur= req.flash('erreur'),
+	user_info = req.session.user_info
+    next();
+});
+
 
 //chemins static
 app.use(express.static("views"));

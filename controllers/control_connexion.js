@@ -5,7 +5,7 @@ module.exports = {
     afficher: function (req, res) {
         if (req.session.user_info == undefined) { // si pas connecte
             titre = "Connexion";
-            res.render('./connexion', { titre, valid: req.flash('valid'), erreur: req.flash('erreur'), user_info: req.session.user_info })
+            res.render('./connexion', { titre })
         } else {
             req.flash('erreur', "Vous n'êtes pas autorisé");
             res.redirect('/')

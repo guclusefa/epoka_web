@@ -6,6 +6,7 @@ module.exports = {
         if (req.session.user_info !== undefined && req.session.user_info.sal_isPersonnel == 1) { // si connecte
             titre = "Remboursement des missions";
             model_remboursement.lister(function (lesMissionsTotal, lesMissions) {
+                // toute les missions + les missions ou une distance est connue
                 for (i in lesMissionsTotal) {
                     for (j in lesMissions) {
                         if (lesMissions[j].mis_id == lesMissionsTotal[i].mis_id) {
@@ -14,8 +15,8 @@ module.exports = {
                         }
                     }
                 }
-                console.log(lesMissionsTotal)
-                res.render('./remboursement', { titre, valid: req.flash('valid'), erreur: req.flash('erreur'), user_info: req.session.user_info, lesMissions: lesMissionsTotal })
+                lesMissions = lesMissionsTotal
+                res.render('./remboursement', { titre, lesMissions })
             })
         } else {
             req.flash('erreur', "Vous n'êtes pas autorisé");
