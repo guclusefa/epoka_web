@@ -1,10 +1,11 @@
 var model_remboursement = require('../models/model_remboursement');
 
 module.exports = {
-    // affichage accueil
+    // affichage remboursement
     afficher: function (req, res) {
         if (req.session.user_info !== undefined && req.session.user_info.sal_isPersonnel == 1) { // si connecte
             titre = "Remboursement des missions";
+
             model_remboursement.lister(function (lesMissionsTotal, lesMissions) {
                 // toute les missions + les missions ou une distance est connue
                 for (i in lesMissionsTotal) {
@@ -24,6 +25,7 @@ module.exports = {
         }
     },
 
+    // remboursement
     rembourser: function (req, res) {
         if (req.session.user_info !== undefined && req.session.user_info.sal_isPersonnel == 1) { // si connecte
             let params = [

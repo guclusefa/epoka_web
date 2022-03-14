@@ -6,6 +6,7 @@ module.exports = {
             titre = "Mon compte";
             model_compte.ficher(req.session.user_info.sal_id, function (data) {
                 info = data[0]
+                // quel statut
                 if(info.sal_isResponsable) {
                     info.statue = "Responsable"
                 } else if (info.sal_isPersonnel) {

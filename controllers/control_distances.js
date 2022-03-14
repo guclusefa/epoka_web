@@ -18,10 +18,11 @@ module.exports = {
         }
     },
 
-
+    // ajouter une distance
     ajouter: function (req, res) {
         if (req.session.user_info !== undefined && req.session.user_info.sal_isPersonnel == 1) { // si connecte
             if (req.body.com_a !== req.body.com_b) {
+                // on prend le plus petit des 2 id
                 if (req.body.com_a < req.body.com_b) {
                     com_a = req.body.com_a
                     com_b = req.body.com_b
@@ -36,6 +37,7 @@ module.exports = {
                 ]
 
                 model_distances.verifier(params.slice(0, 2), function (data) {
+                    // si distance n'existe pas deja
                     if (data == '') {
                         model_distances.ajouter(params, function (data) {
                             req.flash('valid', 'Distance ajouté avec succès');

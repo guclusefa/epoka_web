@@ -14,7 +14,7 @@ module.exports = {
 
     // connexion
     connexion: function (req, res) {
-        if (req.session.user_info == undefined) {
+        if (req.session.user_info == undefined) { // si pas connecte
             let username = req.body.identification
             let mdp = req.body.motdepasse
 
@@ -35,6 +35,7 @@ module.exports = {
         }
     },
 
+    // deconexion
     deconnexion: function (req, res) {
         if (req.session.user_info !== undefined) { // si connecte
             delete req.session.user_info

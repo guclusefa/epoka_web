@@ -1,7 +1,7 @@
 var model_params = require('../models/model_params');
 
 module.exports = {
-    // affichage accueil
+    // affichage des params
     afficher: function (req, res) {
         if (req.session.user_info !== undefined && req.session.user_info.sal_isPersonnel == 1) { // si connecte
             titre = "Les parametres";
@@ -15,6 +15,7 @@ module.exports = {
         }
     },
 
+    // modification des params
     modifier: function (req, res) {
         if (req.session.user_info !== undefined && req.session.user_info.sal_isPersonnel == 1) { // si connecte
             let params = [
