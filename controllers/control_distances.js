@@ -72,4 +72,10 @@ module.exports = {
             res.redirect('/')
         }
     },
+
+    chercher: function (req, res) {
+        s = req.params.search
+        console.log(s)
+        model_communes.chercher(s, function (lesCommunes) {res.json({lesCommunes})})
+    },
 }

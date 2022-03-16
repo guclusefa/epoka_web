@@ -1,3 +1,0 @@
-https://www.reddit.com/r/SQL/comments/bgmuuo/multiple_foreign_keys_in_one_table_joined_with/
-
-SELECT * FROM missions WHERE mis_id NOT IN (SELECT mis_id FROM communes, salaries, agences, missions, distances WHERE com_id = age_idCom AND sal_idAgence = age_id AND mis_idSal = sal_id AND ((dis_idComA = mis_idSalCom AND dis_idComB = mis_idCom) OR (dis_idComA = mis_idCom AND dis_idComB = mis_idSalCom)) ORDER BY mis_id) ORDER BY mis_id;

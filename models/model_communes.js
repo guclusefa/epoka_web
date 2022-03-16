@@ -16,4 +16,12 @@ module.exports = {
             return callback(data);
         });
     },
+
+    chercher: function (params, callback) {
+        var sql = 'SELECT * FROM communes WHERE com_nom LIKE %?%';
+        db.query(sql, params, function (err, data) {
+            if (err) throw err;
+            return callback(data);
+        });
+    },
 };

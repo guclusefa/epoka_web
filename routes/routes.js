@@ -32,6 +32,9 @@ routeur.get('/rembourser/:id/:montant', control_remboursement.rembourser)
 routeur.get('/distances', control_distances.afficher)
 routeur.post('/form_distances', control_distances.ajouter)
 
+routeur.get('/chercher/:s', control_distances.chercher)
+
+
 // params
 routeur.get('/params', control_params.afficher)
 routeur.post('/form_params', control_params.modifier)
