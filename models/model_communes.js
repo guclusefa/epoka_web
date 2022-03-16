@@ -8,4 +8,12 @@ module.exports = {
             return callback(data);
         });
     },
+
+    verifier: function (params, callback) {
+        var sql = 'SELECT com_id FROM communes WHERE com_id = ?';
+        db.query(sql, params, function (err, data) {
+            if (err) throw err;
+            return callback(data);
+        });
+    },
 };

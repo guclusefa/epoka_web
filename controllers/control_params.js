@@ -22,10 +22,27 @@ module.exports = {
                 indemnite = req.body.indemnite,
                 taux = req.body.taux,
             ]
-            model_params.modifier(params, function (data) {
-                req.flash('valid', 'Parametres modifiés avec succès');
+
+            //verif
+            // si les params un nombre positif
+            verif = false
+            params.forEach(element => {
+                if (Number.isInteger(parseInt(element, 10)) && element > 0) {
+                    verif = true
+                } else {
+                    verif = false
+                }
+            });
+            
+            if (verif) {
+                model_params.modifier(params, function (data) {
+                    req.flash('valid', 'Parametres modifiés avec succès');
+                    res.redirect('./params')
+                })
+            } else {
+                req.flash('erreur', 'Entrer des valeurs valides !');
                 res.redirect('./params')
-            })
+            }
         } else {
             req.flash('erreur', "Vous n'êtes pas autorisé");
             res.redirect('/')
