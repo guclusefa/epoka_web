@@ -39,6 +39,9 @@ routeur.post('/form_params', control_params.modifier)
 // mon compte
 routeur.get('/compte', control_compte.afficher)
 
+routeur.get('*', function (req, res) {
+    res.render('404', { titre: 'Erreur 404' })
+});
 
 // routeur
 module.exports = routeur;
