@@ -12,7 +12,7 @@ module.exports = {
         WHERE cA.com_id = mis_idSalCom 
         AND cB.com_id = mis_idCom 
         AND mis_idSal = sal_id
-        AND sal_idResponsable = ?;`
+        AND sal_idResponsable = ?`
         db.query(sql, params, function (err, data) {
             if (err) throw err;
             return callback(data);
