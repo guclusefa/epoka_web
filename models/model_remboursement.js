@@ -44,4 +44,15 @@ module.exports = {
             return callback(data);
         });
     },
+
+    getRemboursementMontant: function (params, callback) {
+        var sql = `SELECT (((DATEDIFF(mis_fin, mis_debut)+1) * indemnite) + (dis_km * taux)) as montantAPayer 
+        FROM missions, distances, parametres 
+        WHERE (mis_idSalCom = dis_idComA AND mis_idCom = dis_idComB OR mis_idCom = dis_idComA AND mis_idSalCom = dis_idComB)
+        AND mis_id = ?`
+        db.query(sql, params, function (err, data) {
+            if (err) throw err;
+            return callback(data);
+        });
+    },
 };
