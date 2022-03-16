@@ -18,7 +18,8 @@ module.exports = {
     },
 
     chercher: function (params, callback) {
-        var sql = 'SELECT * FROM communes WHERE com_nom LIKE %?%';
+        var sql = 'SELECT * FROM communes WHERE com_nom LIKE ?' + '"%" LIMIT 50';
+
         db.query(sql, params, function (err, data) {
             if (err) throw err;
             return callback(data);

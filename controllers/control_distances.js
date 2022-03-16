@@ -74,8 +74,7 @@ module.exports = {
     },
 
     chercher: function (req, res) {
-        s = req.params.search
-        console.log(s)
+        s = req.params.s
         model_communes.chercher(s, function (lesCommunes) {res.json({lesCommunes})})
     },
 }

@@ -11,15 +11,8 @@
                             <div class="col-lg-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label class="text-inverse" for="com_a">Commune A</label>
-                                    <select class="custom-select d-block form-control select2" id="com_a" name="com_a"
-                                        required>
-                                        <option value="" disabled selected>Choisir une commune</option>
-                                        <% lesCommunes.forEach(function(uneCommune){ %>
-                                            <option value="<%= uneCommune.com_id %>">
-                                                <%= uneCommune.com_nom + ' (' + uneCommune.com_cp + ')' %>
-                                            </option>
-                                            <% })%>
-                                    </select>
+                                    <select class="custom-select d-block form-control select2" id="com_a" name="com_a"required>
+                                     </select>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-sm-6 col-12">
@@ -93,19 +86,3 @@
     </div>
 
     <%- include('layout/footer') %>
-
-    <button>Get JSON data</button>
-    <script>
-        $(document).ready(function(){
-  $("button").click(function(){
-    $.getJSON("http://localhost:3000/chercher", function(result){
-      $.each(result, function(i, field){
-        field.forEach(element => {
-            console.log(element.com_nom)
-            console.log(element.com_id)
-        });
-      });
-    });
-  });
-});
-    </script>

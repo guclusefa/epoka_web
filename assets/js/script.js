@@ -37,3 +37,20 @@ $(document).ready(function () {
 $('.select2').select2({
     theme: 'bootstrap'
 });
+
+let dropdown = $('#com_a');
+
+dropdown.empty();
+dropdown.append('<option value="" disabled selected>Choisir une commune</option>');
+dropdown.prop('selectedIndex', 0);
+
+const url = (window.location.href.split(window.location.pathname))[0] + "/chercher/" + "G"
+
+// Populate dropdown with list of provinces
+$.getJSON(url, function (data) {
+    $.each(data, function (key, entry) {
+        entry.forEach(element => {
+            dropdown.append($(`<option value="${element.com_id}">${element.com_nom} ${element.com_cp} </option>`));
+        });
+    })
+});
