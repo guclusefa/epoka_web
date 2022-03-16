@@ -7,6 +7,7 @@ module.exports = {
         if (req.session.user_info !== undefined && req.session.user_info.sal_isResponsable == 1) { // si connecte & responsable
             titre = "Validation des missions";
             model_missions.lister(req.session.user_info.sal_id, function (lesMissions) {
+                console.log(lesMissions)
                 res.render('./missions', { titre, lesMissions })
             })
         } else {
