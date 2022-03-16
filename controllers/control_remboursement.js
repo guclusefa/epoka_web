@@ -1,5 +1,6 @@
 var model_remboursement = require('../models/model_remboursement');
 
+// que si un personnel
 module.exports = {
     // affichage remboursement
     afficher: function (req, res) {

@@ -1,5 +1,6 @@
 var model_missions = require('../models/model_missions');
 
+// que si resonsable
 module.exports = {
     // affichage desmissions
     afficher: function (req, res) {

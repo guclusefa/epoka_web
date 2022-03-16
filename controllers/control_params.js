@@ -1,5 +1,6 @@
 var model_params = require('../models/model_params');
 
+// que si un personnel
 module.exports = {
     // affichage des params
     afficher: function (req, res) {

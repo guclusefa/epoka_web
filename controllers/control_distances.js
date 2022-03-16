@@ -1,6 +1,7 @@
 var model_distances = require('../models/model_distances');
 var model_communes = require('../models/model_communes');
 
+// que si un personnel
 module.exports = {
     // affichage accueil
     afficher: function (req, res) {

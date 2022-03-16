@@ -32,9 +32,12 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <% if (typeof user_info !='undefined' && user_info !='' ) { %>
           <ul class="navbar-nav mr-auto">
+            <% if (user_info.sal_isResponsable == 1 ) { %>
             <li class="nav-item">
               <a class="nav-link" href="/missions">Validation des missions</a>
             </li>
+            <% } %>
+            <% if (user_info.sal_isPersonnel == 1 ) { %>
             <li class="nav-item">
               <a class="nav-link" href="/remboursement">Remboursement des missions</a>
             </li>
@@ -44,6 +47,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/params">Les paramètres</a>
             </li>
+            <% } %>
           </ul>
           <% } %>
             <ul class="navbar-nav ml-auto">
