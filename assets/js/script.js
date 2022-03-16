@@ -35,22 +35,68 @@ $(document).ready(function () {
 
 /* select2 */
 $('.select2').select2({
-    theme: 'bootstrap'
+    theme: 'bootstrap',
+    pagination: {
+        more: true
+    }
 });
 
-let dropdown = $('#com_a');
 
-dropdown.empty();
-dropdown.append('<option value="" disabled selected>Choisir une commune</option>');
-dropdown.prop('selectedIndex', 0);
+/* $(document).on('keydown', '.select2-search__field', function (event) {
+    value = $(".select2-search__field").val();
 
-const url = (window.location.href.split(window.location.pathname))[0] + "/chercher/" + "G"
+    let url = (window.location.href.split(window.location.pathname))[0] + "/chercher/" + value
+    let option = `<option value="" disabled selected>Choisir une commune</option>`
+    // Populate dropdown with list of provinces
+    $.getJSON(url, function (data) {
+        $.each(data, function (key, entry) {
+            entry.forEach(element => {
+                option += `<option value="${element.com_id}">${element.com_nom} (${element.com_cp}) </option>`
+            });
+        })
+        console.log(option)
+        document.getElementById("com_a").innerHTML = option
+    });
+}) */
 
-// Populate dropdown with list of provinces
-$.getJSON(url, function (data) {
-    $.each(data, function (key, entry) {
-        entry.forEach(element => {
-            dropdown.append($(`<option value="${element.com_id}">${element.com_nom} ${element.com_cp} </option>`));
-        });
-    })
+$(".js-example-data-ajax").select2({
+    ajax: {
+        url: "https://api.github.com/search/repositories",
+        dataType: 'json',
+        delay: 250,
+        data: function (params) {
+            return {
+                q: params.term, // search term
+            };
+        },
+        processResults: function (data, params) {
+            return {
+                results: data.items,
+            };
+        },
+    },
+    placeholder: 'TEST',
+    minimumInputLength: 1,
+    templateResult: formatRepo,
+    templateSelection: formatRepoSelection
 });
+
+function formatRepo(repo) {
+    if (repo.loading) {
+        return repo.text;
+    }
+    console.log(repo)
+
+    var $container = $(
+        "<div class='select2-result-repository clearfix'>" +
+        "<div class='select2-result-repository__description'></div>" +
+        "</div>"
+    );
+
+    $container.find(".select2-result-repository__description").text(repo.full_name);
+    return $container;
+}
+
+function formatRepoSelection(repo) {
+    return repo.full_name;
+}

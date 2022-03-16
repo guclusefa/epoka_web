@@ -2,6 +2,8 @@
 
     <div class="jumbotron jumbotron-fluid mb-0">
         <div class="container">
+            <select class="js-example-data-ajax"></select>
+
             <div class="row">
                 <div class="col-12">
                     <p class="h1">Ajouter une distance</p>
@@ -11,8 +13,15 @@
                             <div class="col-lg-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label class="text-inverse" for="com_a">Commune A</label>
-                                    <select class="custom-select d-block form-control select2" id="com_a" name="com_a"required>
-                                     </select>
+                                    <select class="custom-select d-block form-control select2" id="com_a" name="com_a"
+                                        required>
+                                        <option value="" disabled selected>Choisir une commune</option>
+                                        <% lesCommunes.forEach(function(uneCommune){ %>
+                                            <option value="<%= uneCommune.com_id %>">
+                                                <%= uneCommune.com_nom + ' (' + uneCommune.com_cp + ')' %>
+                                            </option>
+                                        <% })%>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-sm-6 col-12">
@@ -25,7 +34,7 @@
                                             <option value="<%= uneCommune.com_id %>">
                                                 <%= uneCommune.com_nom + ' (' + uneCommune.com_cp + ')' %>
                                             </option>
-                                            <% })%>
+                                        <% })%>
                                     </select>
                                 </div>
                             </div>
@@ -86,3 +95,5 @@
     </div>
 
     <%- include('layout/footer') %>
+
+ 
