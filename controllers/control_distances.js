@@ -39,7 +39,6 @@ module.exports = {
 
                 model_communes.verifier(com_a, function (verifA) {
                     model_communes.verifier(com_b, function (verifB) {
-                        console.log(verifA)
                         verif = false
                         if (Number.isInteger(parseInt(req.body.km, 10)) && req.body.km > 0 && verifA.length > 0 && verifB.length > 0) verif = true
                         // si distance est nombre postif
