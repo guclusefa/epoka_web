@@ -59,46 +59,4 @@ $('.select2').select2({
     });
 }) */
 
-$(".js-example-data-ajax").select2({
-    ajax: {
-        url: "https://api.github.com/search/repositories",
-        dataType: 'json',
-        delay: 250,
-        data: function (params) {
-            return {
-                q: params.term, // search term
-            };
-        },
-        processResults: function (data, params) {
-            return {
-                results: data.items,
-            };
-        },
-    },
-    placeholder: 'TEST',
-    minimumInputLength: 1,
-    templateResult: formatRepo,
-    templateSelection: formatRepoSelection
-});
-
-function formatRepo(repo) {
-    if (repo.loading) {
-        return repo.text;
-    }
-    console.log(repo)
-
-    var $container = $(
-        "<div class='select2-result-repository clearfix'>" +
-        "<div class='select2-result-repository__description'></div>" +
-        "</div>"
-    );
-
-    $container.find(".select2-result-repository__description").text(repo.full_name);
-    return $container;
-}
-
-function formatRepoSelection(repo) {
-    return repo.full_name;
-}
-
 

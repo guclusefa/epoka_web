@@ -32,4 +32,5 @@ app.use("/images", express.static(__dirname + "/assets/images"));
 app.use("/data", express.static(__dirname + "/assets/data"));
 
 app.listen(3000, () => console.log("Le serveur est actif !"));
-app.use("/", (Routeur));
+
+app.use("/", Routeur);

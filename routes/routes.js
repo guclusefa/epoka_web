@@ -31,7 +31,7 @@ routeur.get('/rembourser/:id/:montant', control_remboursement.rembourser)
 // distances
 routeur.get('/distances', control_distances.afficher)
 routeur.post('/form_distances', control_distances.ajouter)
-
+/* test */
 routeur.get('/chercher/:s', control_distances.chercher)
 
 
