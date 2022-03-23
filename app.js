@@ -7,14 +7,19 @@ const flash = require('connect-flash');
 // activer les dépendances
 let app = express();
 app.set("view engine", "ejs");
+
+/* bodyparser */
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
+
+/* sessions */
 app.use(session({
 	secret:'leCodeSecretFlash',
 	saveUninitialized: false,
 	resave: false
 }));
-// les variables qu'on utilse de partout
+
+// les variables qu'on utilse de partout + variables flash
 app.use(flash())
 app.use(function(req, res, next){
 	valid= req.flash('valid'),
@@ -23,7 +28,6 @@ app.use(function(req, res, next){
     next();
 });
 
-
 //chemins static
 app.use(express.static("views"));
 app.use("/js", express.static(__dirname + "/assets/js"));
@@ -31,6 +35,8 @@ app.use("/css", express.static(__dirname + "/assets/css"));
 app.use("/images", express.static(__dirname + "/assets/images"));
 app.use("/data", express.static(__dirname + "/assets/data"));
 
+/* port */
 app.listen(3000, () => console.log("Le serveur est actif !"));
 
+/* routage */
 app.use("/", Routeur);
