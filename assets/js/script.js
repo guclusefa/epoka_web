@@ -66,5 +66,6 @@ $(".select2").select2({
     },
     minimumInputLength: 2,
     theme: 'bootstrap',
+    language: "fr"
 })
 
