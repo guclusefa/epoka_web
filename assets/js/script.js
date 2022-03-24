@@ -36,7 +36,7 @@ $(".select2").select2({
     ajax: {
         url: "/data/communes.json",
         dataType: 'json',
-        delay: 500,
+        delay: 50,
         data: function (params) {
             return {
                 q: params.term // search term
@@ -50,7 +50,7 @@ $(".select2").select2({
             var resData = [];
             // ici qu'on cherche
             data.forEach(function (value) {
-                if (value.com_nom.toLowerCase().indexOf(params.term.toLowerCase()) != -1) resData.push(value)
+                if (value.com_nom.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").indexOf(params.term.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")) != -1) resData.push(value)
                 if (value.com_cp.toLowerCase().indexOf(params.term) != -1) resData.push(value)
             })
             return {
