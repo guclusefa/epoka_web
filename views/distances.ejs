@@ -14,11 +14,6 @@
                                     <select class="custom-select d-block form-control select2" id="com_a" name="com_a"
                                         required>
                                         <option value="" disabled selected>Choisir une commune</option>
-                                        <% lesCommunes.forEach(function(uneCommune){ %>
-                                            <option value="<%= uneCommune.com_id %>">
-                                                <%= uneCommune.com_nom + ' (' + uneCommune.com_cp + ')' %>
-                                            </option>
-                                        <% })%>
                                     </select>
                                 </div>
                             </div>
@@ -28,11 +23,6 @@
                                     <select class="custom-select d-block form-control select2" id="com_b" name="com_b"
                                         required>
                                         <option value="" disabled selected>Choisir une commune</option>
-                                        <% lesCommunes.forEach(function(uneCommune){ %>
-                                            <option value="<%= uneCommune.com_id %>">
-                                                <%= uneCommune.com_nom + ' (' + uneCommune.com_cp + ')' %>
-                                            </option>
-                                        <% })%>
                                     </select>
                                 </div>
                             </div>

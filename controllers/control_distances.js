@@ -7,10 +7,8 @@ module.exports = {
     afficher: function (req, res) {
         if (req.session.user_info !== undefined && req.session.user_info.sal_isPersonnel == 1) { // si connecte
             titre = "Les distances";
-            model_communes.lister(function (lesCommunes) {
-                model_distances.lister(function (lesDistances) {
-                    res.render('./distances', { titre, lesCommunes, lesDistances })
-                })
+            model_distances.lister(function (lesDistances) {
+                res.render('./distances', { titre, lesDistances })
             })
         } else {
             req.flash('erreur', "Vous n'êtes pas autorisé");
@@ -74,6 +72,13 @@ module.exports = {
 
     chercher: function (req, res) {
         s = req.params.s
-        model_communes.chercher(s, function (lesCommunes) {res.json({lesCommunes})})
+        model_communes.chercher(s, function (lesCommunes) {
+            test = []
+            lesCommunes.forEach(element => {
+                test.push(element)
+            });
+            res.json({ test })
+
+        })
     },
 }
