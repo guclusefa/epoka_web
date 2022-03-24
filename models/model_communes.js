@@ -2,7 +2,7 @@ var db = require("../config/database");
 module.exports = {
     // page d'accueil
     lister: function (callback) {
-        var sql = "SELECT * FROM communes LIMIT 500";
+        var sql = "SELECT * FROM communes";
         db.query(sql, function (err, data) {
             if (err) throw err;
             return callback(data);
@@ -17,6 +17,7 @@ module.exports = {
         });
     },
 
+    /* test */
     chercher: function (params, callback) {
         var sql = 'SELECT * FROM communes WHERE com_nom LIKE ?' + '"%"';
 
