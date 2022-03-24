@@ -18,6 +18,7 @@ module.exports = {
                     }
                 }
                 lesMissions = lesMissionsTotal
+                console.log(lesMissions)
                 res.render('./remboursement', { titre, lesMissions })
             })
         } else {
