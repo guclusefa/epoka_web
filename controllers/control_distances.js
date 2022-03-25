@@ -70,6 +70,7 @@ module.exports = {
         }
     },
 
+    /* test */
     chercher: function (req, res) {
         s = req.params.s
         model_communes.chercher(s, function (lesCommunes) {
