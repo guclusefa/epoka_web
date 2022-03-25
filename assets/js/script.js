@@ -39,14 +39,10 @@ $(".select2").select2({
         delay: 50,
         data: function (params) {
             return {
-                q: params.term // search term
+                q: params.term // la recherche
             };
         },
         processResults: function (data, params) {
-            // parse the results into the format expected by Select2
-            // since we are using custom formatting functions we do not need to
-            // alter the remote JSON data, except to indicate that infinite
-            // scrolling can be used
             var resData = [];
             // ici qu'on cherche
             data.forEach(function (value) {
