@@ -4,14 +4,15 @@
 
     <div class="container table-responsive py-5">
         <p class="h1 mb-4">Remboursement des missions</p>
+        <hr>
         <table class="table table-bordered table-hover mt-3">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">Salarié</th>
-                    <th scope="col">Début mission</th>
-                    <th scope="col">Fin mission</th>
+                    <th scope="col">Début</th>
+                    <th scope="col">Fin</th>
                     <th scope="col">Agence</th>
-                    <th scope="col">Lieu mission</th>
+                    <th scope="col">Lieu</th>
                     <th scope="col">Montant</th>
                     <th scope="col">Remboursée</th>
                 </tr>
@@ -40,7 +41,7 @@
                                     <%} else if (uneMission.mis_montant) {%>
                                         <%= uneMission.mis_montant %> €
                                             <%} else {%>
-                                                Distance entre <%= uneMission.comA_nom %> et <%= uneMission.comB_nom %>
+                                                Distance
                                                         à définir
                                                         <% } %>
                         </td>
@@ -49,7 +50,7 @@
                             <% if (uneMission.mis_payee) { %>
                                 Oui
                                 <%} else if (!uneMission.dis_km) {%>
-                                    Definir distances
+                                    Non
                                 <% } else { %>
                                     <button class="btn btn-primary"
                                         onclick="location.href='/rembourser/<%= uneMission.mis_id  %>/<%= uneMission.montantAPayer %>'">Rembourser</button>

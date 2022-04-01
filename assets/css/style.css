@@ -21,3 +21,18 @@ body {
 .select2 {
   width: 100% !important;
 }
+
+.select2-container--bootstrap.select2-container--focus .select2-selection, .select2-container--bootstrap.select2-container--open .select2-selection {
+  color: #495057;
+  background-color: #fff;
+  border-color: #7234ff;
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 0.2rem rgb(55 0 179 / 25%);
+  box-shadow: 0 0 0 0.2rem rgb(55 0 179 / 25%);
+}
+
+.select2-container--bootstrap .select2-dropdown {
+  border-color: #7234ff;
+  overflow-x: hidden;
+  margin-top: -1px;
+}

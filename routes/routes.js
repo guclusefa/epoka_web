@@ -11,14 +11,13 @@ var control_distances = require('../controllers/control_distances')
 var control_params = require('../controllers/control_params')
 var control_compte = require('../controllers/control_compte')
 
-
 // routage accueil
 routeur.get('/', control_accueil.afficher)
 
 // connexion
 routeur.get('/connexion', control_connexion.afficher)
-routeur.post('/connexion', control_connexion.connexion)
 routeur.get('/deconnexion', control_connexion.deconnexion)
+routeur.post('/connexion', control_connexion.connexion)
 
 // validation
 routeur.get('/missions', control_missions.afficher)
@@ -31,9 +30,7 @@ routeur.get('/rembourser/:id/:montant', control_remboursement.rembourser)
 // distances
 routeur.get('/distances', control_distances.afficher)
 routeur.post('/form_distances', control_distances.ajouter)
-/* test */
-routeur.get('/chercher/:s', control_distances.chercher)
-
+routeur.get('/chercher/:s', control_distances.chercher) // test
 
 // params
 routeur.get('/params', control_params.afficher)
@@ -42,6 +39,7 @@ routeur.post('/form_params', control_params.modifier)
 // mon compte
 routeur.get('/compte', control_compte.afficher)
 
+// 404
 routeur.get('*', function (req, res) {
     res.render('404', { titre: 'Erreur 404' })
 });

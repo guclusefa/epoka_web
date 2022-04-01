@@ -13,19 +13,15 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
 /* sessions */
-app.use(session({
-	secret:'leCodeSecretFlash',
-	saveUninitialized: false,
-	resave: false
-}));
+app.use(session({ secret: 'leCodeSecretFlash', saveUninitialized: false, resave: false }));
 
 // les variables qu'on utilse de partout + variables flash
 app.use(flash())
-app.use(function(req, res, next){
-	valid= req.flash('valid'),
-	erreur= req.flash('erreur'),
-	user_info = req.session.user_info
-    next();
+app.use(function (req, res, next) {
+	valid = req.flash('valid'),
+		erreur = req.flash('erreur'),
+		user_info = req.session.user_info
+	next();
 });
 
 //chemins static

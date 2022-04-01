@@ -6,7 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/images/favicon.ico">
-  <title><%= titre %> | EPOKA
+  <title>
+    <%= titre %> | EPOKA
   </title>
 
   <link rel="stylesheet" href="/css/bootstrap.css">
@@ -24,7 +25,12 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
 
-      <a class="navbar-brand" href="/">EPOKA</a>
+      <!-- Image and text -->
+
+      <a class="navbar-brand" href="/"> <img src="/images/logo.png" width="30" height="30"
+          class="d-inline-block align-top">
+        EPOKA
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -32,22 +38,22 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <% if (typeof user_info !='undefined' && user_info !='' ) { %>
           <ul class="navbar-nav mr-auto">
-            <% if (user_info.sal_isResponsable == 1 ) { %>
-            <li class="nav-item">
-              <a class="nav-link" href="/missions">Validation des missions</a>
-            </li>
-            <% } %>
-            <% if (user_info.sal_isPersonnel == 1 ) { %>
-            <li class="nav-item">
-              <a class="nav-link" href="/remboursement">Remboursement des missions</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/distances">Les distances</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/params">Les paramètres</a>
-            </li>
-            <% } %>
+            <% if (user_info.sal_isResponsable==1 ) { %>
+              <li class="nav-item">
+                <a class="nav-link" href="/missions">Validation des missions</a>
+              </li>
+              <% } %>
+                <% if (user_info.sal_isPersonnel==1 ) { %>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/remboursement">Remboursement des missions</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/distances">Les distances</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/params">Les paramètres</a>
+                  </li>
+                  <% } %>
           </ul>
           <% } %>
             <ul class="navbar-nav ml-auto">
