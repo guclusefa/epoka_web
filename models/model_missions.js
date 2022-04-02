@@ -13,7 +13,7 @@ module.exports = {
         AND cB.com_id = mis_idCom 
         AND mis_idSal = sal_id
         AND sal_idResponsable = ?
-        ORDER BY mis_id DESC`
+        ORDER BY mis_id desc`
         db.query(sql, params, function (err, data) {
             if (err) throw err;
             return callback(data);

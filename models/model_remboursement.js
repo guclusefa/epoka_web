@@ -12,7 +12,7 @@ module.exports = {
         AND mis_idSalCom = cA.com_id 
         AND mis_idCom = cB.com_id 
         AND mis_validee = 1
-        ORDER BY mis_id DESC;`
+        ORDER BY mis_id;`
         
         var sql2 = `SELECT * ,
         DATE_FORMAT(mis_debut, '%d/%m/%Y') as mis_debut, 
@@ -25,7 +25,7 @@ module.exports = {
         AND mis_idCom = cB.com_id 
         AND ((dis_idComA = mis_idSalCom AND dis_idComB = mis_idCom) OR (dis_idComA = mis_idCom AND dis_idComB = mis_idSalCom)) 
         AND mis_validee = 1
-        ORDER BY mis_id DESC; `
+        ORDER BY mis_id; `
 
         db.query(sql, function (err, data) {
             db.query(sql2, function (err, data2) {
