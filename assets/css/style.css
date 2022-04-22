@@ -22,7 +22,7 @@ body {
   width: 100% !important;
 }
 
-.select2-container--bootstrap.select2-container--focus .select2-selection, .select2-container--bootstrap.select2-container--open .select2-selection {
+/* .select2-container--bootstrap.select2-container--focus .select2-selection, .select2-container--bootstrap.select2-container--open .select2-selection {
   color: #495057;
   background-color: #fff;
   border-color: #7234ff;
@@ -35,4 +35,4 @@ body {
   border-color: #7234ff;
   overflow-x: hidden;
   margin-top: -1px;
-}
+} */
