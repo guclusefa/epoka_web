@@ -33,7 +33,7 @@ app.use("/data", express.static(__dirname + "/assets/data"));
 
 /* port */
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log("Le serveur est actif !"));
+app.listen(PORT, () => console.log(`Le serveur est actif sur le port : ${PORT}`));
 
 /* routage */
 app.use("/", Routeur);
