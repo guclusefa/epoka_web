@@ -32,7 +32,8 @@ app.use("/images", express.static(__dirname + "/assets/images"));
 app.use("/data", express.static(__dirname + "/assets/data"));
 
 /* port */
-app.listen(3000, () => console.log("Le serveur est actif !"));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log("Le serveur est actif !"));
 
 /* routage */
 app.use("/", Routeur);
